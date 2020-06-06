@@ -31,4 +31,10 @@ class AboutApp : AppCompatActivity() {
         startActivity(intent)
     }*/
 
+    fun openUrl(view: View) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://github.com/MriDx/FCMHelperV2")
+        startActivity(intent)
+    }
+
 }

@@ -114,11 +114,11 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
     private fun assignToTopic() {
         FirebaseMessaging.getInstance().subscribeToTopic(BuildConfig.VERSION_NAME)
             .addOnCompleteListener {
-                Toast.makeText(
+                /*Toast.makeText(
                     this,
                     "subscribed to ${BuildConfig.VERSION_NAME}",
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
             }
         FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener { instanceIdResult ->
             Log.d(
@@ -212,7 +212,8 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
     }
 
     private fun showErrorDialog() {
-        Toast.makeText(this, "No App Kela", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "No App Kela", Toast.LENGTH_SHORT).show()
+        Snackbar.make(main_layout, "There's no app added !", Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onAppSave(appName: String, serverKey: String) {
@@ -261,7 +262,10 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
         startActivity(i)
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        getApps()
+    }
 }
 
 

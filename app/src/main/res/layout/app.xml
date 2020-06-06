@@ -16,13 +16,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:cardBackgroundColor="?attr/colorBackgroundFloating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardElevation="5dp"
-        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/lightGray"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:contentPaddingBottom="10dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,9 +53,9 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:textColor="@color/yellow"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +75,7 @@
                 app:layout_constraintHorizontal_bias="1"
                 android:id="@+id/deleteApp"
                 app:tint="@color/yellow"
+                android:visibility="gone"
                 />
 
 

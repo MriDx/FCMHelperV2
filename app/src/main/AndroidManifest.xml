@@ -27,6 +27,7 @@
         <activity android:name=".ui.AboutDev" />
         <activity android:name=".ui.AboutApp" />
         <activity android:name=".ui.SendReport" />
+        <activity android:name=".ui.AppSettings" />
 
         <service android:name=".services.NotificationService"
             android:enabled="true"

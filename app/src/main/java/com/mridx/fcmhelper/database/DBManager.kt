@@ -10,6 +10,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 
 class DBManager(c: Context) {
     private var dbHelper: DBHelper? = null
@@ -86,6 +87,20 @@ class DBManager(c: Context) {
         )
         m.close()
         return k
+    }
+
+    fun updateKey(id: Int, serverKey: String) {
+        val x = database!!.rawQuery(
+            "UPDATE " +
+                    "${DBHelper.TABLE_NAME} " +
+                    "SET " +
+                    "${DBHelper.SERVER_KEY} = '$serverKey' " +
+                    "WHERE " +
+                    "${DBHelper.ID} ='$id'",
+            null,
+            null
+        )
+        Log.d("kaku", x.count.toString())
     }
 
     fun delete_app(appName: String): Cursor {

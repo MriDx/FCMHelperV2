@@ -158,6 +158,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
                 app:layout_constraintVertical_bias="0.74" />
 
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="@+id/msgSend"
+                app:layout_constraintEnd_toEndOf="@id/msgSend"
+                app:layout_constraintTop_toTopOf="@+id/msgSend"
+                app:layout_constraintBottom_toBottomOf="@id/msgSend"
+                app:layout_constraintVertical_bias="0.5"
+                android:elevation="2dp"
+                android:visibility="gone"
+                android:id="@+id/mainProgressbar"
+                />
+
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/msgResponse"
                 android:layout_width="wrap_content"

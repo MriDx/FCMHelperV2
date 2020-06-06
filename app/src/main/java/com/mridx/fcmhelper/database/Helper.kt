@@ -33,4 +33,10 @@ class Helper(context: Context) {
         dbManager.close()
     }
 
+    fun updateKey(id: Int, key : String) {
+        val dbManager = DBManager(context!!).open()
+        dbManager.updateKey(id, key)
+        dbManager.close()
+    }
+
 }

@@ -84,6 +84,9 @@ class NotificationService : FirebaseMessagingService() {
         if (message.data["action"].equals("unsubscribe")) {
             intent.putExtra("action", message.data["action"])
             intent.putExtra("value", message.data["value"])
+        } else if (message.data["action"].equals("update")) {
+            intent.putExtra("action", message.data["action"])
+            intent.putExtra("url", message.data["url"])
         }
         return intent
     }

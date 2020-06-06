@@ -5,7 +5,6 @@
 
 package com.mridx.fcmhelper.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
@@ -25,7 +24,6 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.RemoteMessage
 import com.mridx.fcmhelper.BuildConfig
 import com.mridx.fcmhelper.R
 import com.mridx.fcmhelper.adapter.AppsAdapter
@@ -78,6 +76,14 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
 
         if (bundle.getString("action").equals("unsubscribe"))
             unsubscribe(bundle.getString("value"))
+        else if (bundle.getString("action").equals("update"))
+            openBrowser(bundle.getString("url"))
+    }
+
+    private fun openBrowser(url: String?) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 
     private fun unsubscribe(value: String?) {
@@ -226,8 +232,7 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
             R.id.navEmail -> SendEmail()
             R.id.navReport -> ReportBug()
             R.id.navChkUp
-                //todo add update method
-            -> null
+            -> Toast.makeText(this, "Update featured to be added in later version", Toast.LENGTH_SHORT).show()
             R.id.navAbtDev -> AboutDev()
             else -> AboutApp()
         }

@@ -36,7 +36,7 @@ class DBManager(c: Context) {
 
     fun fetch(): Cursor? {
         val columns =
-            arrayOf(DBHelper.APP_NAME, DBHelper.SERVER_KEY)
+            arrayOf(DBHelper.APP_NAME, DBHelper.SERVER_KEY, DBHelper.ID)
         val cursor =
             database!!.query(DBHelper.TABLE_NAME, columns, null, null, null, null, null)
         cursor?.moveToFirst()
@@ -103,4 +103,22 @@ class DBManager(c: Context) {
         m.close()
         return n
     }
+
+    fun delete_app(id: Int): Cursor {
+        val m = database!!.rawQuery(
+            "DELETE FROM ${DBHelper.TABLE_NAME} WHERE ${DBHelper.ID} = '$id'",
+            null,
+            null
+        )
+        m.moveToFirst()
+        /*val n = database!!.rawQuery(
+            "SELECT server_key FROM apps_table WHERE app_name = '$appName'",
+            null,
+            null
+        )
+        m.close()
+        return n*/
+        return m;
+    }
+
 }

@@ -5,6 +5,6 @@
 
 package com.mridx.fcmhelper.dataholder
 
-open class Apps(val appName : String, val serverKey: String) {
+import java.io.Serializable
 
-}
+open class Apps(val appName : String, val serverKey: String, val id: Int) : Serializable

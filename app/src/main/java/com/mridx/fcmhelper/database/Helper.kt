@@ -27,4 +27,10 @@ class Helper(context: Context) {
         dbManager.close()
     }
 
+    fun deleteApp(id:Int) {
+        val dbManager = DBManager(context!!).open()
+        dbManager.delete_app(id)
+        dbManager.close()
+    }
+
 }

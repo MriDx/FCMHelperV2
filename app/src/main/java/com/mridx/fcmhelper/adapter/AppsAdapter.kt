@@ -19,6 +19,7 @@ class AppsAdapter(context: Context, appsList: ArrayList<Apps>) : RecyclerView.Ad
     var context : Context? = null
     var appsList : ArrayList<Apps>? = null
     var onItemClicked : ((Apps) -> Unit)? = null
+    var onAppDeleted : ((Apps) -> Unit)? = null
 
     init {
         this.context = context
@@ -39,6 +40,7 @@ class AppsAdapter(context: Context, appsList: ArrayList<Apps>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: MyViewholder, position: Int) {
         holder.itemView.rowsAppName.text = appsList!![position].appName
+        holder.itemView.deleteApp.setOnClickListener{onAppDeleted?.invoke(appsList!![position])}
         holder.itemView.setOnClickListener { v -> onItemClicked?.invoke(appsList!![position])}
     }
 

@@ -14,4 +14,5 @@
     <color name="yellow">#F9AA33</color>
     <color name="primaryYellow">#F1B55B</color>
     <color name="lighter">#DCB478</color>
+    <color name="black">#000000</color>
 </resources>

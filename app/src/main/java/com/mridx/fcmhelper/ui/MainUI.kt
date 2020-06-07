@@ -213,13 +213,21 @@ class MainUI : AppCompatActivity(), AppAddFragment.OnAppSave,
         appsAdapter?.notifyDataSetChanged()
         if (appList!!.size < 1)
             showErrorDialog()
-
+        else
+            hideError()
         swipeLayout.isRefreshing = false
+    }
+
+    private fun hideError() {
+        errorMsg.visibility = View.GONE
+        appHolder.visibility = View.VISIBLE
     }
 
     private fun showErrorDialog() {
         //Toast.makeText(this, "No App Kela", Toast.LENGTH_SHORT).show()
         Snackbar.make(main_layout, "There's no app added !", Snackbar.LENGTH_SHORT).show()
+        errorMsg.visibility = View.VISIBLE
+        appHolder.visibility = View.GONE
     }
 
     override fun onAppSave(appName: String, serverKey: String) {
